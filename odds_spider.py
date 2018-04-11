@@ -4,7 +4,7 @@
 
 import scrapy
 from dateutil import parser
-import pytz as tz
+import pytz as tz   #looks like arrow is the better library here for future improvement
 
 
 short_teams = {
