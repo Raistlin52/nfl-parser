@@ -63,7 +63,7 @@ class OddsSpider(scrapy.Spider):
                 away_team = rows[0].css('a::text').extract_first()
                 home_team = rows[1].css('a::text').extract_first()
                 # The following td's seem like they're off by one, but using the 
-                # pseudo-selector ::text skips the Team names, probably because they're links
+                # pseudo-selector ::text skips the Team names, probably because they're links in tds
                 away_score = rows[0].css('td::text')[0].extract()
                 home_score = rows[1].css('td::text')[0].extract()
                 away_spread = rows[0].css('td::text')[1].extract()
@@ -90,7 +90,7 @@ class OddsSpider(scrapy.Spider):
                     'home_ml': home_ml
                 }
 
-        # userful if you want to go any more
-        # # next_page = response.css('li.next a::attr("href")').extract_first()
+        # userful if you want to go any more links
+        # next_page = response.css('li.next a::attr("href")').extract_first()
         # if next_page is not None:
         # yield response.follow(next_page, self.parse)
